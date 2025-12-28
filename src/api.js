@@ -1,4 +1,4 @@
-const API_BASE = '';
+const API_BASE = import.meta.env.VITE_API_URL || '';
 
 // Get token from localStorage
 export const getToken = () => localStorage.getItem('token');
