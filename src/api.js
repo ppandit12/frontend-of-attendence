@@ -153,7 +153,7 @@ export const createWebSocket = () => {
   
   const isSecure = API_BASE.startsWith('https');
   const wsProtocol = isSecure ? 'wss' : 'ws';
-  const wsHost = API_BASE.replace(/^https?:\/\//, '');
+  const wsHost = API_BASE.replace(/^https?:\/\//, '').replace(/\/$/, '');
   const wsUrl = `${wsProtocol}://${wsHost}/ws?token=${token}`;
   return new WebSocket(wsUrl);
 };
