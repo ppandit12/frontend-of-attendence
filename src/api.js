@@ -31,7 +31,8 @@ const apiRequest = async (endpoint, options = {}) => {
   };
 
   try {
-    const response = await fetch(`${API_BASE}${endpoint}`, {
+    const url = `${API_BASE.replace(/\/$/, '')}/${endpoint.replace(/^\//, '')}`;
+    const response = await fetch(url, {
       ...options,
       headers,
     });
